@@ -7,6 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragment_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
     <include
         android:id="@+id/footer_menu"
         layout="@layout/footer_menu"
@@ -16,8 +22,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         />
-
-    <!--ここにトップ画面を切り替えるFragmentを置く-->
-
 
 </android.support.constraint.ConstraintLayout>

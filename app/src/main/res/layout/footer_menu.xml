@@ -6,25 +6,25 @@
               android:background="@color/colorAppThema"
               android:layout_gravity="bottom">
     <include
-        android:id="@+id/footer_menu_button1"
+        android:id="@+id/footer_menu_button_status"
         layout="@layout/footer_menu_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
     <include
-        android:id="@+id/footer_menu_button2"
+        android:id="@+id/footer_menu_button_point"
         layout="@layout/footer_menu_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
     <include
-        android:id="@+id/footer_menu_button3"
+        android:id="@+id/footer_menu_button_spoit"
         layout="@layout/footer_menu_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
     <include
-        android:id="@+id/footer_menu_button4"
+        android:id="@+id/footer_menu_button_setting"
         layout="@layout/footer_menu_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

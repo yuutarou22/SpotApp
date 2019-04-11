@@ -1,5 +1,9 @@
 package com.example.yutaroapp.spotapp;
 
+import android.media.Image;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,23 +17,65 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    final boolean[] flg = {true};
-    final TextView textView = (TextView)findViewById(R.id.footer_menu).
-            findViewById(R.id.footer_menu_button1).findViewById(R.id.footer_menu_button_text);
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-    ImageButton imageButton01 = (ImageButton)findViewById(R.id.footer_menu).
-            findViewById(R.id.footer_menu_button1).findViewById(R.id.footer_menu_button_img_button);
-    imageButton01.setOnClickListener(new View.OnClickListener() {
+    if (savedInstanceState == null) {
+      fragmentTransaction.add(R.id.fragment_area, StatusFragment.newInstance());
+      fragmentTransaction.commit();
+    }
+
+    onCreateView();
+  }
+
+  protected void onCreateView() {
+    // 処理が冗長なので要検討
+    ImageButton statusButton = (ImageButton)findViewById(R.id.footer_menu).
+            findViewById(R.id.footer_menu_button_status).findViewById(R.id.footer_menu_button_img_button);
+    statusButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (flg[0]) {
-          textView.setText("切り替えテスト");
-          flg[0] = false;
-        } else {
-          textView.setText(R.string.app_name);
-          flg[0] = true;
-        }
+        StatusFragment statusFragment = new StatusFragment();
+        openFragment(statusFragment);
       }
     });
+
+    ImageButton pointButton = (ImageButton)findViewById(R.id.footer_menu).
+            findViewById(R.id.footer_menu_button_point).findViewById(R.id.footer_menu_button_img_button);
+    pointButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        PointFragment pointFragment = new PointFragment();
+        openFragment(pointFragment);
+      }
+    });
+
+    ImageButton spoitButton = (ImageButton)findViewById(R.id.footer_menu).
+            findViewById(R.id.footer_menu_button_spoit).findViewById(R.id.footer_menu_button_img_button);
+    spoitButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        SpoitFragment spoitFragment = new SpoitFragment();
+        openFragment(spoitFragment);
+      }
+    });
+
+    ImageButton settingButton = (ImageButton)findViewById(R.id.footer_menu).
+            findViewById(R.id.footer_menu_button_setting).findViewById(R.id.footer_menu_button_img_button);
+    settingButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        SettingFragment settingFragment = new SettingFragment();
+        openFragment(settingFragment);
+      }
+    });
+  }
+
+  protected void openFragment(Fragment fragment) {
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+    fragmentTransaction.replace(R.id.fragment_area, fragment);
+    fragmentTransaction.commit();
   }
 }
