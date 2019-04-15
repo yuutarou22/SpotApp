@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".StatusFragment">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatusFragment">
+
+    <ImageView
+        android:id="@+id/status_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/frame_style"
+        android:src="@drawable/status_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Status画面です"/>
+        android:id="@+id/status_user_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:text="名前"
+        android:textSize="@dimen/text_size_status_user_name"
+        app:layout_constraintStart_toEndOf="@+id/status_icon"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/status_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:text="ユーザ名"
+        android:textSize="@dimen/text_size_status_user_name"
+        app:layout_constraintStart_toEndOf="@+id/status_user_name_label"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/status_lank_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="称号"
+        android:textSize="@dimen/text_size_status_user_name"
+        app:layout_constraintStart_toEndOf="@+id/status_icon"
+        app:layout_constraintTop_toBottomOf="@+id/status_user_name_label"/>
+
+    <TextView
+        android:id="@+id/status_lank_name"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="称号名"
+        android:textSize="@dimen/text_size_status_user_name"
+        app:layout_constraintStart_toEndOf="@+id/status_lank_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/status_user_name"/>
+
+    <ProgressBar
+        android:id="@+id/status_lank_experience_point_indicator"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="290dp"
+        android:layout_height="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_icon"
+        app:layout_constraintVertical_weight="1"/>
+
+    <TextView
+        android:id="@+id/status_message_text_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/frame_style"
+        android:text="一言"
+        android:singleLine="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/status_lank_experience_point_indicator"/>
+
+</android.support.constraint.ConstraintLayout>

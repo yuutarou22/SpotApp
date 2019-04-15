@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class StatusFragment extends Fragment {
   public StatusFragment() {
@@ -31,5 +32,18 @@ public class StatusFragment extends Fragment {
                            ViewGroup container,
                            Bundle savedInstanceState) {
     return inflater.inflate(R.layout.fragment_status, container, false);
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+
+    TextView userName = (TextView)getActivity().findViewById(R.id.status_user_name);
+    TextView lankName = (TextView)getActivity().findViewById(R.id.status_lank_name);
+    TextView messageText = (TextView)getActivity().findViewById(R.id.status_message_text_area);
+    // 本来はDBなどからデータを取得してセットする。
+    userName.setText("うぱぁー");
+    lankName.setText("都内アドバイザー");
+    messageText.setText("うぱうぱうぱぱぱー、うぱぱぱー。");
   }
 }
